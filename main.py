@@ -15,7 +15,7 @@ client = OpenAI(api_key=OPENAI_KEY)
 def submit_message(assistant_id, thread, user_message):
     client.beta.threads.messages.create(
         thread_id=thread.id, role="user", content=user_message,
-        file_ids=['file-bMleCcB3btG9JFTx9ZaCzyLL','file-smveIqQRXUJaQEYVwaEkFpSH','file-qMXQ3k8TC979ETJxeqpc917o','file-kJKz9KUi6UE1uDeipJbuVEUy']
+        file_ids=['file-oX4PKlIGXcQ2m6NccxEVXM2l']
     )
     return client.beta.threads.runs.create(
         thread_id=thread.id,
@@ -34,7 +34,8 @@ def create_thread_and_run(user_input):
 def pretty_print(messages):
     print("# Messages")
     for m in messages:
-        st.write(f"{m.role}: {m.content[0].text.value}")
+        #st.write(f"{m.role}: {m.content[0].text.value}")
+        print(f"{m.role}: {m.content[0].text.value}")
     print()
 
 def wait_on_run(run, thread):
@@ -53,9 +54,12 @@ def run(query):
 
 def main():
     # Emulating concurrent user requests
-    st.title("MITRA Chatbot")
-    user_question = st.text_input("Ask a question about your documents:")
-    if user_question:
-        run(user_question)
+    #st.title("MITRA Chatbot")
+    #user_question = st.text_input("Ask a question about your documents:")
+    #if user_question:
+    #    run(user_question)
+
+    query = "tell me any one chapter from Cloud Computing and the topics in that chapter"
+    run(query)
 
 main()
