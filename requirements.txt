@@ -1,5 +1,8 @@
 streamlit
-openai
-python-dotenv == 1.0.1
-time
-os
+langchain
+PyPDF2
+langchain-openai
+langchain-core
+langchain-community
+python-dotenv
+uuid
